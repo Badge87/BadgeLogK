@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/BadgeLogK.iml" filepath="$PROJECT_DIR$/.idea/modules/BadgeLogK.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/BadgeLogK.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/BadgeLogK.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/badgelogk/BadgeLogK.badgelogk.iml" filepath="$PROJECT_DIR$/.idea/modules/badgelogk/BadgeLogK.badgelogk.iml" />
+    </modules>
+  </component>
+</project>

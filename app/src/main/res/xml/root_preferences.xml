@@ -1,0 +1,41 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="@string/badgelog_header">
+
+        <Preference
+            app:key="verbose"
+            app:icon="@drawable/verbose"
+            app:title="@string/verbose_title"/>
+        <Preference
+            app:key="debug"
+            app:icon="@drawable/debug"
+            app:title="@string/debug_title"/>
+        <Preference
+            app:key="info"
+            app:icon="@drawable/info"
+            app:title="@string/info_title"/>
+        <Preference
+            app:key="warning"
+            app:icon="@drawable/warning"
+            app:title="@string/warning_title"/>
+        <Preference
+            app:key="error"
+            app:icon="@drawable/error"
+            app:title="@string/error_title"/>
+        <Preference
+            app:key="error_exception"
+            app:icon="@drawable/error_exception"
+            app:title="@string/error_exception_title"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/action_header">
+
+        <Preference
+            app:key="share"
+            app:icon="@drawable/share"
+            app:title="@string/share_title"/>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
