@@ -37,7 +37,10 @@ Logger.error("I am an error with exception log!", Throwable("Custom Fake Excepti
 ```
 
 ## LogDestination
-LogDestination is a source that will print the logs in different destination. At the moment there are this destination templates:
+LogDestination is a source that will print the logs in different destination. 
+Every Log request will be dispatched into every Destination added during setup()
+
+At the moment there are this destination templates:
 - ConsoleDestination: will print logs inside Logcat. You can specify the single row format and the min log level.
 - FileDestination: will print logs inside files. You can specify the path, the min log level and the single row format.
 
