@@ -3,7 +3,7 @@
 </p>
 
 # BadgeLog (Kotlin version)
-
+For the iOS swift version, see [this page](https://github.com/Badge87/BadgeLog)
 
 BadgeLog is an Android Kotlin library that helps you manage logs within your application:
 
