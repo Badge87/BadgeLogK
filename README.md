@@ -15,9 +15,14 @@ BadgeLog is an Android Kotlin library that helps you manage logs within your app
 Setting up the library is very quick and easy. You need to invoke the following method:
 
 ```kotlin
-Logger.setup()
+Logger.setup(ConsoleDestination())
 ```
-I recommend to put it within the initialization of the App or in any case as soon as possible
+This will setup Logger with the funcionality to print logs into Logcat.
+If you want to save log in file also, just add any destination you want in setup():
+```kotlin
+Logger.setup(ConsoleDestination(), FileDestination())
+```
+I recommend to call setup() within the initialization of the App or in any case as soon as possible.
 
 
 The library is ready to log! to log in, simply call up:
@@ -31,8 +36,38 @@ Logger.error("I'm an error log!")
 Logger.error("I am an error with exception log!", Throwable("Custom Fake Exception"))
 ```
 
-The detailed documentation is still in progress.
+## LogDestination
+LogDestination is a source that will print the logs in different destination. At the moment there are this destination templates:
+- ConsoleDestination: will print logs inside Logcat. You can specify the single row format and the min log level.
+- FileDestination: will print logs inside files. You can specify the path, the min log level and the single row format.
 
+You can create a custom LogDestination. Just subclass LogClass Destination and handle the log row string inside send() method. This example show how ConsoleDestination handle its logic inside send() method:
+```kotlin
+override fun send(
+        level: Logger.LogLevel,
+        message: String,
+        error: Throwable?,
+        tag: String,
+        file: String,
+        method: String,
+        line: Int
+    ): String {
+        //call super to retrive the formatted log row string
+        val result = super.send(level, message, error, tag, file, method, line)
+        //if return empty string, it means that the minLevel is greater that log row level
+        if (result.isEmpty())
+            return ""
+
+        when(level) {
+            Logger.LogLevel.VERBOSE -> Log.v(tag, result, error)
+            Logger.LogLevel.DEBUG -> Log.d(tag, result, error)
+            Logger.LogLevel.INFO -> Log.i(tag, result, error)
+            Logger.LogLevel.WARNING -> Log.w(tag, result, error)
+            Logger.LogLevel.ERROR -> Log.e(tag, result, error)
+        }
+        return result
+    }
+```
 
 ## Requirements
 - Min SDK 21
