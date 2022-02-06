@@ -11,18 +11,30 @@ BadgeLog is an Android Kotlin library that helps you manage logs within your app
 - Print console logs in a nice way and customize it.
 - Ability to save logs to file and export them
 
+## Installation
+
+```gradle
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+   implementation 'com.danielebachicchi.badgelogk:badgelogk:0.1.0'
+}
+```
+
 ## Configure
 Setting up the library is very quick and easy. You need to invoke the following method:
 
 ```kotlin
 Logger.setup(ConsoleDestination())
 ```
-This will setup Logger with the funcionality to print logs into Logcat.
+This will setup ```Logger``` with the funcionality to print logs into Logcat.
 If you want to save log in file also, just add any destination you want in setup():
 ```kotlin
 Logger.setup(ConsoleDestination(), FileDestination())
 ```
-I recommend to call setup() within the initialization of the App or in any case as soon as possible.
+I recommend to call ```setup()``` within the initialization of the App or in any case as soon as possible.
 
 
 The library is ready to log! to log in, simply call up:
@@ -37,14 +49,14 @@ Logger.error("I am an error with exception log!", Throwable("Custom Fake Excepti
 ```
 
 ## LogDestination
-LogDestination is a source that will print the logs in different destination. 
+```LogDestination``` is a source that will print the logs in different destination. 
 Every Log request will be dispatched into every Destination added during setup()
 
 At the moment there are this destination templates:
-- ConsoleDestination: will print logs inside Logcat. You can specify the single row format and the min log level.
-- FileDestination: will print logs inside files. You can specify the path, the min log level and the single row format.
+- ```ConsoleDestination```: will print logs inside Logcat. You can specify the single row format and the min log level.
+- ```FileDestination```: will print logs inside files. You can specify the path, the min log level and the single row format.
 
-You can create a custom LogDestination. Just subclass LogClass Destination and handle the log row string inside send() method. This example show how ConsoleDestination handle its logic inside send() method:
+You can create a custom ```LogDestination```. Just subclass LogDestination and handle the log row string inside ```send()``` method. This example show how ConsoleDestination handle its logic inside send() method:
 ```kotlin
 override fun send(
         level: Logger.LogLevel,
@@ -74,11 +86,6 @@ override fun send(
 
 ## Requirements
 - Min SDK 21
-
-## Installation
-
-TODO
-
 
 ## Author
 
