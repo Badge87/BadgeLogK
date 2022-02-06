@@ -89,7 +89,7 @@ override fun send(
 
 ## Author
 
-Badge87, bacdaniele@gmail.com
+Daniele Bachicchi (Badge87), bacdaniele@gmail.com
 
 ## License
 
