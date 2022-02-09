@@ -83,6 +83,36 @@ override fun send(
         return result
     }
 ```
+## Log Format
+
+For each `LogDestination`, you can set the format in which they will display the logs. The format is a string that can contain custom characters and preset values.
+Insert your own custom character inside apex.
+The default format is
+
+```
+"T '-' L '-' '['c':'l']' M e"
+
+2022-02-08T13:00:00Z - VERBOSE - [ContentView:18] I'm a log!
+```
+The default format for ConsoleDestination is:
+```swift
+"'['m':'l']' M"
+
+VERBOSE [ContentView:18] I'm a log!
+```
+
+Preset Char (case sensitive) are:
+- `M` -> the message of the log.
+- `m` -> the function name where the log has been requested
+- `L` -> the `LogLevel` type (VERBOSE, DEBUG, INFO....)
+- `l` -> the line number of the file where the log has been requested
+- `f` -> the file name, fullpath, where the log has been requested
+- `c` -> the file name, without path, where the log has been requested
+- `e` -> the NSError of the log, if present.
+- `T` -> the date of the log, formatted with var `dateFormat` of the `LogDestination`.
+- `t` -> the tag of the log.
+- " " -> empty space.
+
 
 ## Requirements
 - Min SDK 21
