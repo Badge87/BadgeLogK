@@ -117,10 +117,6 @@ Preset Char (case sensitive) are:
 ## Requirements
 - Min SDK 21
 
-## Author
-
-Daniele Bachicchi (Badge87)
-
 ## License
 
 BadgeLog is available under the MIT license. See the LICENSE file for more info.
